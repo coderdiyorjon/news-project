@@ -1,0 +1,49 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>{{ news.title }} — NewsFeed</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <!-- Yangilik sarlavhasi -->
+      <h1 class="fw-bold mb-3 text-center">{{ news.title }}</h1>
+      <div class="text-muted text-center mb-4">
+        <small>
+          {{ news.publish_time|date:"d M Y H:i" }} |
+          {{ news.category.name }}
+        </small>
+      </div>
+
+      <!-- Rasm -->
+      {% if news.image %}
+        <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid rounded mb-4 shadow-sm">
+      {% else %}
+        <img src="{% static 'images/no_image.jpg' %}" alt="No image available" class="img-fluid rounded mb-4 shadow-sm">
+      {% endif %}
+
+      <!-- Asosiy matn -->
+      <article class="fs-5 lh-lg mb-4">
+        {{ news.body|linebreaks }}
+      </article>
+
+      <!-- Meta ma’lumot -->
+      <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-3 text-muted">
+        <small>Nashr etilgan: {{ news.publish_time|date:"d M Y H:i" }}</small>
+        <small>Oxirgi yangilanish: {{ news.updated_time|date:"d M Y H:i" }}</small>
+      </div>
+
+      <!-- Orqaga qaytish -->
+      <div class="text-center mt-5">
+        <a href="{% url 'index' %}" class="btn btn-outline-primary px-4">
+          ← Orqaga qaytish
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
