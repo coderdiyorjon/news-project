@@ -37,12 +37,22 @@
         <small>Oxirgi yangilanish: {{ news.updated_time|date:"d M Y H:i" }}</small>
       </div>
 
-      <!-- Orqaga qaytish -->
+      <!-- Harakat tugmalari -->
       <div class="text-center mt-5">
-        <a href="{% url 'index' %}" class="btn btn-outline-primary px-4">
+        <a href="{% url 'index' %}" class="btn btn-outline-primary px-4 me-2">
           ← Orqaga qaytish
         </a>
+
+        {% if user.is_superuser %}
+          <a href="{% url 'news_update_page' news.slug %}" class="btn btn-warning px-4 me-2">
+            ✏️ Tahrirlash
+          </a>
+          <a href="{% url 'news_delete_page' news.slug %}" class="btn btn-danger px-4">
+            🗑️ O‘chirish
+          </a>
+        {% endif %}
       </div>
+
     </div>
   </div>
 </div>

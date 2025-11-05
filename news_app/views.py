@@ -1,6 +1,8 @@
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404
+from rest_framework.reverse import reverse_lazy
+
 from .models import News, Category
 from .forms import ContactForm
 # Create your views here.0
@@ -142,3 +144,15 @@ class TechnoNewsView(ListView):
     def get_queryset(self):
         news = self.model.objects.filter(status=News.Status.Published, category__name='Texnologiya').order_by('-publish_time')
         return news
+
+
+class NewsUpdateView(UpdateView):
+    model = News
+    fields = ('title', 'body', 'image', 'category', 'status')
+    template_name = 'crud/news_edit.html'
+
+
+class NewsDeleteView(DeleteView):
+    model = News
+    template_name = 'crud/news_delete.html'
+    success_url = reverse_lazy('index')
