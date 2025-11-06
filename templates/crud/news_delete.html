@@ -9,7 +9,7 @@
     <h2 class="text-center">Joriy yangilikni o'chirish</h2>
     <form method="post">{% csrf_token %}
     <p>{{ news.title | truncatewords:3 }}... sarlavhali yangilikni o'chirmoqchimisiz ?</p>
-    <submit type="button", class="btn btn-danger ml-2">Tasdiqlayman</submit>
+    <submit type="button" class="btn btn-danger ml-2">Tasdiqlayman</submit>
     </form>
 
 {% endblock content %}

@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block title %}
-  <title>{{ news.title }} — NewsFeed</title>
+  <title>Yangilik Qo'shish — NewsFeed</title>
 {% endblock title %}
 
 {% block content %}
 
-    <h2 class="text-center"> Joriy yangilikni tahrirlash </h2>
+    <h2 class="text-center">Yangilik Qo'shish</h2>
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-info ml-2">Tahrirlash</button>
+    <button type="submit" class="btn btn-info ml-2">Yaratish</button>
     </form>
 
 {% endblock content %}

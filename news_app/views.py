@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 from django.shortcuts import render, get_object_or_404
 from rest_framework.reverse import reverse_lazy
 
@@ -156,3 +156,9 @@ class NewsDeleteView(DeleteView):
     model = News
     template_name = 'crud/news_delete.html'
     success_url = reverse_lazy('index')
+
+
+class NewsCreateView(CreateView):
+    model = News
+    template_name = 'crud/news_create.html'
+    fields = ('title', 'slug', 'body', 'image', 'category', 'status')
