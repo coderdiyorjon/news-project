@@ -13,10 +13,7 @@ urlpatterns = [
     path('news/create/', NewsCreateView.as_view(), name='news_create_page'),
     path('news/<slug:slug>/edit/', NewsUpdateView.as_view(), name='news_update_page'),
     path('news/<slug:slug>/delete/', NewsDeleteView.as_view(), name='news_delete_page'),
-
-    # 🔽 Keyin dinamik slug yo‘li:
     path('news/<slug:news>/', news_detail, name='news_detail_page'),
-
     path('contact-us/', ContactPageView.as_view(), name='contact_page'),
     path('local-news/', LocalNewsView.as_view(), name='local_news_page'),
     path('sport-news/', SportNewsView.as_view(), name='sport_news_page'),
