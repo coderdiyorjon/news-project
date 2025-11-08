@@ -25,7 +25,7 @@ class News(models.Model):
                             )
     body = models.TextField()
     image = models.ImageField(upload_to='news/images',
-                              null=True,
+                              default='news/images/default.jpg',
                               blank=True
                               )
     category = models.ForeignKey(Category,
