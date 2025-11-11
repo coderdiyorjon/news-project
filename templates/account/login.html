@@ -1,0 +1,40 @@
+{% extends 'news/base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+
+{% block title %} Login Sahifasi {% endblock title %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="col-md-6 col-lg-4">
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-body p-5">
+        <h2 class="text-center mb-3 fw-bold text-primary">Tizimga kirish</h2>
+        <p class="text-center text-muted mb-4">
+          Iltimos, saytga kirish uchun quyidagi formani to‘ldiring
+        </p>
+
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {{ form|crispy }}
+            <br>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg rounded-3">
+              Kirish
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center mt-4">
+          <small class="text-muted">
+            Akkauntingiz yo‘qmi?
+            <a href="#" class="text-decoration-none fw-semibold">
+              Ro‘yxatdan o‘tish
+            </a>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
