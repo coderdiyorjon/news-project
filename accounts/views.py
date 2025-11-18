@@ -29,3 +29,13 @@ def user_login(request):
             'form': form,
         }
         return render(request, 'account/login.html', context)
+
+def dashboard_view(request):
+    user = request.user
+    print(request)
+    print(user)
+
+    context = {
+        'user': user,
+    }
+    return render(request, 'pages/user_profile.html', context)
