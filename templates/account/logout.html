@@ -1,19 +1,27 @@
 {% extends 'news/base.html' %}
 {% load static %}
 
-{% block title %} LogOut Sahifasi {% endblock title %}
+{% block title %}Chiqish{% endblock title %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
   <div class="col-md-6 col-lg-5">
     <div class="card shadow-lg border-0 rounded-4 text-center p-5">
       <div class="card-body">
-        <h2 class="fw-bold text-danger mb-3">Hisobdan chiqdingiz</h2>
+        <h2 class="fw-bold text-danger mb-3">Chiqish</h2>
         <p class="text-muted mb-4">
-          Siz tizimdan muvaffaqiyatli tarzda chiqdingiz.
+          Siz tizimdan chiqmoqchimisiz?
         </p>
-        <a href="{% url 'login' %}" class="btn btn-primary btn-lg rounded-3">
-          <i class="bi bi-box-arrow-in-right me-2"></i> Qayta kirish
+
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger btn-lg rounded-3 mb-3">
+            <i class="bi bi-box-arrow-right me-2"></i> Tizimdan chiqish
+          </button>
+        </form>
+
+        <a href="{% url 'index' %}" class="btn btn-secondary btn-lg rounded-3">
+          Bekor qilish
         </a>
       </div>
     </div>

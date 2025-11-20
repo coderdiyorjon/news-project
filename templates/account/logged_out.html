@@ -1,0 +1,38 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Tizimdan chiqildi{% endblock title %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-lg border-0 rounded-4 text-center p-5">
+      <div class="card-body">
+
+        <h2 class="fw-bold text-success mb-3">
+          <i class="bi bi-check-circle-fill me-2"></i>Hisobdan chiqdingiz
+        </h2>
+
+        <p class="text-muted mb-4">
+          Siz tizimdan muvaffaqiyatli chiqdingiz.
+        </p>
+
+        <a href="{% url 'login' %}"
+           class="btn btn-primary btn-lg rounded-3 mb-3"
+           style="padding: 10px 20px;">
+          <i class="bi bi-box-arrow-in-right me-2"></i> Qayta kirish
+        </a>
+
+        <br>
+
+        <a href="{% url 'index' %}"
+           class="btn btn-secondary btn-lg rounded-3"
+           style="padding: 10px 20px;">
+          <i class="bi bi-house-door-fill me-2"></i> Bosh sahifaga qaytish
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

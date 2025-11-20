@@ -39,3 +39,7 @@ def dashboard_view(request):
         'user': user,
     }
     return render(request, 'pages/user_profile.html', context)
+
+
+def logout_view(request):
+    return render(request, 'account/logout.html')

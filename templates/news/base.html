@@ -43,15 +43,19 @@
             </ul>
           </div>
           <div class="header_top_right">
-              {% if request.user.is_authenticated %}
-                  <p>
-                  <a href="{% url 'user_profile' %}" style="color: #ffff00">My Profile</a>
-                  </p>
-              {% else %}
-                  <p>
-                  <a href="{% url 'login' %}" style="color: #ffff00">Login</a>
-                  </p>
-              {% endif %}
+              <nav>
+    {% if request.user.is_authenticated %}
+        <li style="">
+            <a href="{% url 'user_profile' %}" style="color: #ffff00; font-weight: bold; text-decoration: none;">My Profile</a>
+        </li>
+    {% else %}
+        <li style="">
+            <a href="{% url 'login' %}" style="color: #ffff00; font-weight: bold; text-decoration: none;">Login</a>
+        </li>
+    {% endif %}
+
+</nav>
+
             <p>{% now "jS F Y" %}</p>
           </div>
         </div>
